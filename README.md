@@ -25,6 +25,7 @@
 |Familiar|level2|level2|level3|level4|level5|level5|
 |Somewhat familiar|level1|level2|level2|level3|level3|level4|
 |Unfamiliar|level1|level1|level1|level1|level2|level2|
+
 而Skip则跳过当前这个单词。 <br/>
 在页面中，h1中的vocabulary将被数据库中这个单词的vocabulary所代替，level0将被这个单词的具体熟练度所代替，Engling Meaning: 后面将出现这个单词的englighMeaning，同理，Chinese Meaning: 后面将出现这个单词的chineseMeaning。在没有按Show English Meaning和Show Chinese Meaning按钮之前，隐藏他们的注解。<br/>
 要实现的功能：	
