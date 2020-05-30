@@ -18,7 +18,24 @@
 |如果输入单词和数据库中单词重复，alert|未完成|
 
 ### learn.html
-在learn.html
+在learn.html页面里，用户可以根据自己制定的计划进行学习。根据用户制定每日学习单词的量，服务器会从数据库中调取单词。服务器优先调取level0的单词，要是用户每日的单词量小于level0中单词量，则不考虑其他level的单词直接调取level0的单词（顺序无所谓）。如果用户每日单词量大于level0中单词，剩下的单词则从其他level中根据设置的概率进行调取。<br/>
+当用户在学习单词时，对于每个熟练度的单词，点击每个按钮会让单词进入不同的新的熟练度：
+|用户所按的按钮|当前熟练度为level0|level1|level2|level3|level4|level5|
+|-----------|----------------|-----|------|-------|-------|------|
+|Familiar|level2|level2|level3|level4|level5|level5|
+|Somewhat familiar|level1|level2|level2|level3|level3|level4|
+|Unfamiliar|level1|level1|level1|level1|level2|level2|
+而Skip则跳过当前这个单词。 <br/>
+在页面中，h1中的vocabulary将被数据库中这个单词的vocabulary所代替，level0将被这个单词的具体熟练度所代替，Engling Meaning: 后面将出现这个单词的englighMeaning，同理，Chinese Meaning: 后面将出现这个单词的chineseMeaning。在没有按Show English Meaning和Show Chinese Meaning按钮之前，隐藏他们的注解。<br/>
+要实现的功能：	
+|需求|完成度|
+|---|----|
+|从后段根据规程调取用户每日学习量的单词|未完成|
+|将页面中的元素换成单词的数据|未完成|
+|完成对Show English Meaning和Show Chinese Meaning两个按钮功能的实现|未完成|
+|完成对Familiar，Somewhat familiar和Unfamiliar三个按钮功能的实现（post进数据库）|未完成|
+|完成对skip这个按钮功能的实现|未完成|
+（目前未设计API）
 
 ### setting.html
 在setting.html页面里，用户可以设置每个熟练度单词出现的概率，首先level0的单词（新词）必须优先出现，比如说，一天的背诵量是100个，数据库中有50个新词，这50个新词必须出现在100个需要背诵的单词里，剩余50个单词根据每个难度的概率来分配。所以这里只有level1到level5的概率，而没有level0的概率。用户在最后一个输入框里可以设置每天要背诵的单词量。<br/>
@@ -48,5 +65,3 @@ models提供单词和设置的数据库模型，db.js用于连接mongodb.
 
 ### /setting
 功能为post，用户在setting.html中输入的设置通过/setting来对数据库中document进行改写。
-
-### /load

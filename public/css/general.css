@@ -31,3 +31,36 @@ textarea.form-control{
     height: 90px;
 }
 
+.btn-outline{
+    color: azure;
+    background-color: #007bff;
+    border-color: #007bff
+}
+
+.btn-success{
+    width: 20vw;
+    color: #fff;
+    background-color: #1e7e34;
+    border-color: #1e7e34
+}
+
+.btn-warning{
+    width: 20vw;
+    color: #fff;
+    background-color: #ffc107;
+    border-color: #ffc107
+}
+
+.btn-danger{
+    width: 20vw;
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545
+}
+
+.btn-secondary{
+    width: 20vw;
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d
+}
