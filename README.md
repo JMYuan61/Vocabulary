@@ -36,6 +36,7 @@
 |完成对Show English Meaning和Show Chinese Meaning两个按钮功能的实现|未完成|
 |完成对Familiar，Somewhat familiar和Unfamiliar三个按钮功能的实现（post进数据库）|未完成|
 |完成对skip这个按钮功能的实现|未完成|
+
 （目前未设计API）
 
 ### setting.html
