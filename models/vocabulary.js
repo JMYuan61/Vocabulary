@@ -5,7 +5,8 @@ var vocabSchema = db.model("vocabularies", {
     englishMeaning:      String,
     chineseMeaning:      String,
     level:               Number,
-    context:             [String]
+    context:             [String],
+    toDay:               String
 });
 
 module.exports = vocabSchema;

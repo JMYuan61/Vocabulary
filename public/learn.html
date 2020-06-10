@@ -20,50 +20,86 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Add new vocabulary</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="index">Add new vocabulary</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Learn vocabulary</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="setting.html">Setting</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="setting">Setting</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <!-- <div class="container">
+
+        </div> -->
+
         <div class="container">
-            <div class="card shadow-lg o-hidden border-0 my-5">
-                    <div class="row">
-                        <div class="col">
-                            <h1>Vocabulary</h1>
-                            <h6 class="text-muted">level0</h6>
-                        </div>
-                        <div class="col">
-                            <h2>Learned: </h2>
-                        </div>
+            <div class="card mt-5">
+                <main class="col-md-12 p-3 bd-content">
+                    <div class="d-flex justify-content-between bd-highlight">
+                        <h2>Learned: </h2>
+                        <button class="btn btn-success w-auto"   type="button" onclick="temporarily()" >Temporarily add 10</button>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>English Meaning: </p>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-outline">Show English Meaning</button>
-                        </div>
+                    <div class="d-flex justify-content-center bd-highlight">
+                        
+                        <h6 class="text-muted">level <span id="level"></span></h6>
+                        <h1 id="vocab">Nothing word</h1>
+                    </div>                                            
+                    <div class="d-flex justify-content-end bd-highlight my-3 ">
+
+                        <button id="English" type="button" class="btn btn-outline w-auto"
+                            data-container="body" data-toggle="popover" data-placement="left" 
+                            title="Show English Meaning"
+                            data-content="">
+                            Show English Meaning
+                        </button>
+                        
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>Chinese Meaning: </p>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-outline">Show Chinese Meaning</button>
-                        </div>
+                    <div class="d-flex justify-content-end bd-highlight my-3">
+                        
+                        <button id="Chinese" type="button" class="btn btn-outline w-auto"
+                            data-container="body" data-toggle="popover" data-placement="left" 
+                            title="Show Chinese Meaning"
+                            data-content="">
+                            Show Chinese Meaning
+                        </button>
                     </div>
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-success" type="button">Farmiliar</button>
-                        <button class="btn btn-warning" type="button">Somewhat Farmiliar</button>
-                        <button class="btn btn-danger" type="button">Unfamiliar</button>
-                        <button class="btn btn-secondary" type="button">Skip</button>
+                    <div class="d-flex justify-content-center bd-highlight mt-5">
+                        <button class="btn btn-success mx-3"   type="button" onclick="changeLevel('farmiliar')" >Farmiliar</button>
+                        <button class="btn btn-warning"   type="button" onclick="changeLevel('somewhat')" >Somewhat Farmiliar</button>
                     </div>
-                </div>
+                    <div class="d-flex justify-content-center bd-highlight my-3">
+                        <button class="btn btn-danger mx-3"    type="button" onclick="changeLevel('unfamiliar')" >Unfamiliar</button>
+                        <button class="btn btn-secondary" type="button" onclick="changeLevel()" >Skip</button>
+                    </div>
+                    
+                </main>
+            </div>
+        
+                
+        </div>
+
+        <!-- 弹框 -->
+        <div class="modal fade" id="message_alert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel"> Message prompt </h5>
+                    </div>
+                    <div class="modal-body" id="message_body">
+                        There are no words to learn today, so you can reset the daily review amount
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"data-dismiss="modal">close</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/index.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/learn.js"></script>
+        <script src="js/temporarily.js"></script>
+
     </body>
 </html>

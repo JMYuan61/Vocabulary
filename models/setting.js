@@ -7,7 +7,8 @@ var settingSchema = db.model("setting", {
     level3:              Number,
     level4:              Number,
     level5:              Number,
-    vocabNumber:         Number
+    vocabNumber:         Number,
+    toDay:               String
 });
 
 module.exports = settingSchema;

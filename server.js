@@ -1,8 +1,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose =require("mongoose");
-var Vocab = require("./models/vocabulary");
-var Setting = require("./models/setting");
+
+
 var swig = require("swig");
 
 var app = express();
@@ -16,71 +16,17 @@ app.set('views', './public');
 app.set('view engine', 'html');
 swig.setDefaults({cache: false});
 
+/* --- codeing --  index */
 
-app.post("/add",async function(req,res){
-    var vocabulary = req.body.vocabulary;
-    var englishMeaning = req.body.englishMeaning;
-    var chineseMeaning = req.body.chineseMeaning;
-    if (vocabulary === "") {
-        res.render('index', { status: '1'});
-    } else if (chineseMeaning=== "") {
-        res.render('index', { status: '2'});
-    } else {
-        try{
-            var temp = await Vocab.findOne({'vocab':vocabulary});
-            if (temp) {
-                res.render('index', { status: '3'});
-            } else {
-                var vocab = new Vocab({
-                    vocab:vocabulary,
-                    englishMeaning:englishMeaning,
-                    chineseMeaning:chineseMeaning,
-                    level:0
-                });
-                vocab.save(function(err, stu) {
-                    if (err) {
-                        res.status(400).send(err);
-                    } else {
-                        res.render('index', { status: '0'});
-                    }
-                });
-            }
-        }catch(err){
-            res.status(400).send(err);
-        }
-    }
-});
+let index = require('./service/indexService');
+let learn = require('./service/learnService');
+let setting = require('./service/settingService');
+let temporarily = require('./service/temporarilyService');
 
-app.post("/setting",async function(req,res){
-    var number = req.body.number;
-    var level1 = req.body.level1;
-    var level2 = req.body.level2;
-    var level3 = req.body.level3;
-    var level4 = req.body.level4;
-    var level5 = req.body.level5;
-    if (number === "") {
-        res.render('index', { errormessage: 'You should fill all blanks!'});
-    } else {
-        try{
-            const setting = await Setting.findOne({'name':'vocabularySetting'});
-            if (setting) {
-                await Setting.updateOne({'name':'vocabularySetting'},{$set:{
-                    level1:level1,
-                    level2:level2,
-                    level3:level3,
-                    level4:level4,
-                    level5:level5,
-                    vocabNumber:number
-                }});
-                res.render('setting');
-            } else {
-                res.status(400).send(err);
-            }
-        }catch(err){
-            res.json({message:err});
-        }
-    }
-});
+app.use('/', ...[index, learn, setting, temporarily])
+
+/* --- codeing -- learn */
+
 
 
 // app.post("/load",async function(req,res){

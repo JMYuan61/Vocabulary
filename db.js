@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 const uri = "mongodb://localhost:27017/Vocabulary";
-mongoose.connect(uri, function(err) {
+var option = { useNewUrlParser : true , useUnifiedTopology: true}
+mongoose.connect(uri, option, function(err) {
     if (err) {
         console.log("MongoDB is not connected!");
     } else {

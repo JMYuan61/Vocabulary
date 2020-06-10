@@ -20,8 +20,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Add new vocabulary</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="learn.html">Learn vocabulary</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="index">Add new vocabulary</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="learn">Learn vocabulary</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Setting</a></li>
                     </ul>
                 </div>
@@ -34,28 +34,77 @@
                             <div class="flex-grow-1 bg-login-image rounded" style="background-image: url(&quot;img/224792.jpg&quot;);"></div>
                         </div>
                         <div class="col">
-                            <form class="user" method="POST" action="/setting">
-                                <div class="form-group">
-                                    <label class="col-form-label">Probabilities&nbsp;</label>
-                                    <ul>
-                                        <li><input class="form-control" id="level1" name="level1" onkeypress="return handleEnter(this, event)" placeholder="level 1"></li>
-                                        <li><input class="form-control" id="level2" name="level2" onkeypress="return handleEnter(this, event)" placeholder="level 2"></li>
-                                        <li><input class="form-control" id="level3" name="level3" onkeypress="return handleEnter(this, event)" placeholder="level 3"></li>
-                                        <li><input class="form-control" id="level4" name="level4" onkeypress="return handleEnter(this, event)" placeholder="level 4"></li>
-                                        <li><input class="form-control" id="level5" name="level5" onkeypress="return handleEnter(this, event)" placeholder="level 5 "></li>
-                                    </ul>
+                            <!--  -->
+                            <form class="user form-horizontal" id="level_form" method="POST" action="/setting">
+                                <label class="col-form-label">Probabilities&nbsp;</label>
+                                <div class="form-group form-inline">
+                                    <label class="col-sm-5 control-label">level1(%)</label> 
+                                    <div class="col-sm-7">
+                                        <input class="form-control" id="level1" name="level1" value="{{ data.level1 }}" onkeypress="return handleEnter(this, event)" placeholder="level 1">
+                                    </div>
+                                </div>
+                                <div class="form-group form-inline">
+                                    <label class="col-sm-5 control-label">level2(%)</label> 
+                                    <div class="col-sm-7">
+                                        <input class="form-control" id="level2" name="level2" value="{{ data.level2 }}" onkeypress="return handleEnter(this, event)" placeholder="level 2">
+                                    </div>
+                                </div>
+                                <div class="form-group form-inline">
+                                    <label class="col-sm-5 control-label">level3(%)</label> 
+                                    <div class="col-sm-7">
+                                        <input class="form-control" id="level3" name="level3" value="{{ data.level3 }}" onkeypress="return handleEnter(this, event)" placeholder="level 3">
+                                    </div>
+                                </div>
+                                <div class="form-group form-inline">
+                                    <label class="col-sm-5 control-label">level4(%)</label> 
+                                    <div class="col-sm-7">
+                                        <input class="form-control" id="level4" name="level4" value="{{ data.level4 }}" onkeypress="return handleEnter(this, event)" placeholder="level 4">
+                                    </div>
+                                </div>
+                                <div class="form-group form-inline">
+                                    <label class="col-sm-5 control-label">level5(%)</label> 
+                                    <div class="col-sm-7">
+                                        <input class="form-control" id="level5" name="level5" value="{{ data.level5 }}" onkeypress="return handleEnter(this, event)" placeholder="level 5 ">
+                                    </div>
+                                </div>
+                      
+                                <div class="form-group form-inline">
+                                    <label class="col-sm-5 col-form-label" for="number">Total number each day:&nbsp;</label>
+                                    <div class="col-sm-7">
+                                        <input class="form-control" id="number" name="number" value="{{ data.vocabNumber }}" onkeypress="return handleEnter(this, event)"></textarea>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-form-label" for="number">Total number each day:&nbsp;</label>
-                                    <input class="form-control" id="number" name="number" onkeypress="return handleEnter(this, event)"></textarea>
+                                    <div class="offset-md-2 col-sm-8">
+                                        <button class="btn btn-primary btn-block text-white btn-user" type="submit" >Save!</button>
+                                    </div>
                                 </div>
-                                <button class="btn btn-primary btn-block text-white btn-user" type="submit" onclick="">Save!</button>
                             </form>
                         </div>
                     </div>
         </div>
+        <input type="hidden" id="status" name="status" value="{{ status }}">
+        <!-- 弹框 -->
+        <div class="modal fade" id="message_alert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel"> 消息提示 </h5>
+                    </div>
+                    <div class="modal-body" id="message_body">
+                        {{ message }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"data-dismiss="modal">关闭</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/index.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/index_effect.js"></script>
+        <script src="js/setting.js"></script>
+
     </body>
 </html>

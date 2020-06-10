@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -21,20 +22,21 @@
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Add new vocabulary</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="learn.html">Learn vocabulary</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="setting.html">Setting</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="learn">Learn vocabulary</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="setting">Setting</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="container">
+            
             <div class="card shadow-lg o-hidden border-0 my-5">
                 <div class="row">
                     <div class="col d-none d-lg-flex">
                         <div class="flex-grow-1 bg-login-image rounded" style="background-image: url(&quot;img/224792.jpg&quot;);"></div>
                     </div>
                     <div class="col">
-                        <form class="user" method="POST" action="/add">
+                        <form class="user" method="POST" action="/index">
                             <div class="form-group">
                                 <label class="col-form-label" for="vocabulary">English meaning:&nbsp;</label>
                                 <input class="form-control" id="vocabulary" name="vocabulary" onkeypress="return handleEnter(this, event)">
@@ -52,9 +54,33 @@
                     </div>
                 </div>
             </div>
+            <!-- 弹框 -->
+            <div class="modal fade" id="message_alert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myModalLabel"> 消息提示 </h5>
+                        </div>
+                        <div class="modal-body">
+                            {{ message }}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default"data-dismiss="modal">关闭</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
         </div>
+
+        
+
+        <input type="hidden" id="status" name="status" value="{{ status }}" />
         <script src="js/jquery.min.js"></script>
-        <script src="js/index.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/index_effect.js"></script>
+
+
+
     </body>
 </html>
