@@ -49,7 +49,7 @@ getLearnData = async () => {
 
     const ltData  = await getLearnDataLt(vocabData, vocabNumber, settingData)
 
-    return vocabData.concat(ltData)
+    return vocabData.concat(ltData).sort(function(){ return (0.5-Math.random());})
     
 }
 
