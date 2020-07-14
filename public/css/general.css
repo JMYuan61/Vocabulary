@@ -68,3 +68,14 @@ textarea.form-control{
 .text-hidden {
     visibility:hidden;
 }
+
+
+.panel{
+    margin: 10px
+}
+
+.panel-heading{
+    color:#fff;
+    display: block;
+    text-decoration: none;
+}

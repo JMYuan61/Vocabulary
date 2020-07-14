@@ -5,6 +5,7 @@
         <title>Vocabulary</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/general.css">
+        <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" integrity="sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+" rel="stylesheet" />
     </head>
     <body class="bg-gradient">
         <nav class="navbar navbar-light navbar-expand-md shadow-lg">
@@ -29,62 +30,115 @@
         </nav>
         <div class="container">
             <div class="card shadow-lg o-hidden border-0 my-5">
-                    <div class="row">
-                        <div class="col d-none d-lg-flex">
-                            <div class="flex-grow-1 bg-login-image rounded" style="background-image: url(&quot;img/224792.jpg&quot;);"></div>
-                        </div>
-                        <div class="col">
-                            <!--  -->
-                            <form class="user form-horizontal" id="level_form" method="POST" action="/setting">
-                                <label class="col-form-label">Probabilities&nbsp;</label>
-                                <div class="form-group form-inline">
-                                    <label class="col-sm-5 control-label">level1(%)</label> 
-                                    <div class="col-sm-7">
-                                        <input class="form-control" id="level1" name="level1" value="{{ data.level1 }}" onkeypress="return handleEnter(this, event)" placeholder="level 1">
-                                    </div>
+                <div class="row">
+                    <div class="col d-none d-lg-flex">
+                        <div class="flex-grow-1 bg-login-image rounded" style="background-image: url(&quot;img/224794.jpg&quot;);"></div>
+                    </div>
+                    <div class="col">
+                        <!--  -->
+                        <form class="user form-horizontal" id="level_form" method="POST" action="/setting">
+                            <label class="col-form-label">Probabilities&nbsp;</label>
+                            <div class="form-group form-inline">
+                                <label class="col-sm-5 control-label">level1(%)</label> 
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="level1" name="level1" value="{{ data.prob.level1 }}" onkeypress="return handleEnter(this, event)" placeholder="level 1">
                                 </div>
-                                <div class="form-group form-inline">
-                                    <label class="col-sm-5 control-label">level2(%)</label> 
-                                    <div class="col-sm-7">
-                                        <input class="form-control" id="level2" name="level2" value="{{ data.level2 }}" onkeypress="return handleEnter(this, event)" placeholder="level 2">
-                                    </div>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label class="col-sm-5 control-label">level2(%)</label> 
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="level2" name="level2" value="{{ data.prob.level2 }}" onkeypress="return handleEnter(this, event)" placeholder="level 2">
                                 </div>
-                                <div class="form-group form-inline">
-                                    <label class="col-sm-5 control-label">level3(%)</label> 
-                                    <div class="col-sm-7">
-                                        <input class="form-control" id="level3" name="level3" value="{{ data.level3 }}" onkeypress="return handleEnter(this, event)" placeholder="level 3">
-                                    </div>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label class="col-sm-5 control-label">level3(%)</label> 
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="level3" name="level3" value="{{ data.prob.level3 }}" onkeypress="return handleEnter(this, event)" placeholder="level 3">
                                 </div>
-                                <div class="form-group form-inline">
-                                    <label class="col-sm-5 control-label">level4(%)</label> 
-                                    <div class="col-sm-7">
-                                        <input class="form-control" id="level4" name="level4" value="{{ data.level4 }}" onkeypress="return handleEnter(this, event)" placeholder="level 4">
-                                    </div>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label class="col-sm-5 control-label">level4(%)</label> 
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="level4" name="level4" value="{{ data.prob.level4 }}" onkeypress="return handleEnter(this, event)" placeholder="level 4">
                                 </div>
-                                <div class="form-group form-inline">
-                                    <label class="col-sm-5 control-label">level5(%)</label> 
-                                    <div class="col-sm-7">
-                                        <input class="form-control" id="level5" name="level5" value="{{ data.level5 }}" onkeypress="return handleEnter(this, event)" placeholder="level 5 ">
-                                    </div>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label class="col-sm-5 control-label">level5(%)</label> 
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="level5" name="level5" value="{{ data.prob.level5 }}" onkeypress="return handleEnter(this, event)" placeholder="level 5 ">
                                 </div>
-                      
-                                <div class="form-group form-inline">
-                                    <label class="col-sm-5 col-form-label" for="number">Total number each day:&nbsp;</label>
-                                    <div class="col-sm-7">
-                                        <input class="form-control" id="number" name="number" value="{{ data.vocabNumber }}" onkeypress="return handleEnter(this, event)"></textarea>
-                                    </div>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label class="col-sm-5 control-label">level6(%)</label> 
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="level6" name="level6" value="{{ data.prob.level6 }}" onkeypress="return handleEnter(this, event)" placeholder="level 6 ">
                                 </div>
-                                <div class="form-group">
-                                    <div class="offset-md-2 col-sm-8">
-                                        <button class="btn btn-primary btn-block text-white btn-user" type="submit" >Save!</button>
-                                    </div>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label class="col-sm-5 control-label">level7(%)</label> 
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="level7" name="level7" value="{{ data.prob.level7 }}" onkeypress="return handleEnter(this, event)" placeholder="level 7 ">
                                 </div>
-                            </form>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label class="col-sm-5 control-label">level8(%)</label> 
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="level8" name="level8" value="{{ data.prob.level8 }}" onkeypress="return handleEnter(this, event)" placeholder="level 8 ">
+                                </div>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label class="col-sm-5 control-label">level9(%)</label> 
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="level9" name="level9" value="{{ data.prob.level10 }}" onkeypress="return handleEnter(this, event)" placeholder="level 9 ">
+                                </div>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label class="col-sm-5 control-label">level10(%)</label> 
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="level10" name="level10" value="{{ data.prob.level10 }}" onkeypress="return handleEnter(this, event)" placeholder="level 10 ">
+                                </div>
+                            </div>
+                            
+                    
+                            <div class="form-group form-inline">
+                                <label class="col-sm-5 col-form-label" for="number">Total number each day:&nbsp;</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="number" name="number" value="{{ data.prob.vocabNumber }}" onkeypress="return handleEnter(this, event)"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="offset-md-2 col-sm-8">
+                                    <button class="btn btn-primary btn-block text-white btn-user" type="submit" >Save!</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="panel panel-primary">
+                            <a class="panel-heading" href="javascript:void(0);" id="collapseTrigger">
+                                <strong>Statistics</strong>
+                            </a>
+                            <div class="panel-body" id="instructionBody">
+                                <div class="form-group form-inline"><label class="col-sm-5 control-label">level0: </label><strong>{{ data.stats.count0 }}</strong></div>
+                                <div class="form-group form-inline"><label class="col-sm-5 control-label">level1: </label><strong>{{ data.stats.count1 }}</strong></div>
+                                <div class="form-group form-inline"><label class="col-sm-5 control-label">level2: </label><strong>{{ data.stats.count2 }}</strong></div>
+                                <div class="form-group form-inline"><label class="col-sm-5 control-label">level3: </label><strong>{{ data.stats.count3 }}</strong></div>
+                                <div class="form-group form-inline"><label class="col-sm-5 control-label">level4: </label><strong>{{ data.stats.count4 }}</strong></div>
+                                <div class="form-group form-inline"><label class="col-sm-5 control-label">level5: </label><strong>{{ data.stats.count5 }}</strong></div>
+                                <div class="form-group form-inline"><label class="col-sm-5 control-label">level6: </label><strong>{{ data.stats.count6 }}</strong></div>
+                                <div class="form-group form-inline"><label class="col-sm-5 control-label">level7: </label><strong>{{ data.stats.count7 }}</strong></div>
+                                <div class="form-group form-inline"><label class="col-sm-5 control-label">level8: </label><strong>{{ data.stats.count8 }}</strong></div>
+                                <div class="form-group form-inline"><label class="col-sm-5 control-label">level9: </label><strong>{{ data.stats.count9 }}</strong></div>
+                                <div class="form-group form-inline"><label class="col-sm-5 control-label">level10: </label><strong>{{ data.stats.count10 }}</strong></div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
         </div>
         <input type="hidden" id="status" name="status" value="{{ status }}">
-        <!-- 弹框 -->
         <div class="modal fade" id="message_alert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -97,8 +151,8 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default"data-dismiss="modal">关闭</button>
                     </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal -->
+                </div>
+            </div>
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/index.js"></script>
