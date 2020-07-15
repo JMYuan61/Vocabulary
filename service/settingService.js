@@ -13,39 +13,20 @@ function getDate(){
 }
 
 getNumber = async () => {
-    const date = getDate()
-    const group = await Vocab.aggregate([
-        {
-            $match : {
-                toDay: {
-                    $ne: date
-                }
-            },
-        },
-        {
-            $group : {
-                _id : "$level",
-                level_count : {
-                    $sum : 1
-                }
-            }
-        }
-    ])
-    .sort({_id: 1})
-    .then((resolve, reject) => {
-        let result = {}
-        for(let key in resolve) {
-            if(resolve[key]._id) {
-                result[resolve[key]._id] = resolve[key].level_count
-            }
-        }
-        for(let i = 0; i < 11; i++) {
-            if (!result[i]) {
-                result[i] = 0;
-            }
-        }
-        return result
-    })
+    let group = {}
+    group['0'] = await Vocab.countDocuments({ level: '0'}).exec()
+    group['1'] = await Vocab.countDocuments({ level: '1'}).exec()
+    group['2'] = await Vocab.countDocuments({ level: '2'}).exec()
+    group['3'] = await Vocab.countDocuments({ level: '3'}).exec()
+    group['4'] = await Vocab.countDocuments({ level: '4'}).exec()
+    group['5'] = await Vocab.countDocuments({ level: '5'}).exec()
+    group['6'] = await Vocab.countDocuments({ level: '6'}).exec()
+    group['7'] = await Vocab.countDocuments({ level: '7'}).exec()
+    group['8'] = await Vocab.countDocuments({ level: '8'}).exec()
+    group['9'] = await Vocab.countDocuments({ level: '9'}).exec()
+    group['10'] = await Vocab.countDocuments({ level: '10'}).exec()
+    console.log(group)
+    
     return group
 }
 
